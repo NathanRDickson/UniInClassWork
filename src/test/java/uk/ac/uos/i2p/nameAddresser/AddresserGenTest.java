@@ -1,4 +1,4 @@
-package nameAddresser;
+package uk.ac.uos.i2p.arraySorter.nameAddresser;
 
 import static org.junit.jupiter.api.Assertions.*;
 
