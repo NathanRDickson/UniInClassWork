@@ -1,6 +1,7 @@
-package uk.ac.uos.i2p.arraySorter.nameAddresser;
+package test.java.uk.ac.uos.i2p.nameAddresser;
 
 import static org.junit.jupiter.api.Assertions.*;
+import main.java.uk.ac.uos.i2p.nameAddresser.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -37,29 +38,32 @@ class AddresserGenTest {
 	@Test
 	void test5() {
 		AddresserGen nathan = new AddresserGen();
-		String output = nathan.fullName("nÄthÄn ", "RichÄrd ", " dickson");
+		String output = nathan.fullName("nathan ", "Richard ", " dickson");
 		assertEquals("N R DICKSON", output);
 	}
 	
 	@Test
-	void test6() {
+	void SpecialChar() {
 		AddresserGen nathan = new AddresserGen();
-		String output = nathan.fullName("nathan ", "Richard ", " dicKson");
-		assertEquals("N R DICKSON", output);
-	}
-	
-	@Test
-	void test7() {
-		AddresserGen nathan = new AddresserGen();
-		String output = nathan.fullName("nÄthÄn ", "RichÄrd ", " dicksön");
+		String output = nathan.fullName("nathan ", "Richard ", " dicksön");
 		assertEquals("N R DICKSÖN", output);
 	}
 	
 	@Test
-	void test8() {
+	void NullValueTests() {
 		AddresserGen nathan = new AddresserGen();
-		String output = nathan.fullName("nÄthÄn ", "RichÄrd ", " فارص");
-		assertEquals("N R فارص", output);
+		String output = nathan.fullName("nathan ", null , " dickson");
+		String output2 = nathan.fullName(null, "Richard" , "Dickson");
+		String output3 = nathan.fullName("Nathan", "Richard" , null);
+		String output4 = nathan.fullName(null, null , null);
+		
+		assertEquals("N DICKSON", output);
+		assertEquals("Name not valid", output2);
+		assertEquals("Name not valid", output3);
+		assertEquals("Name not valid", output4);
+
 	}
+	
+
 
 }

@@ -1,7 +1,19 @@
-package uk.ac.uos.i2p.arraySorter.nameAddresser;
+package main.java.uk.ac.uos.i2p.nameAddresser;
 
 public class AddresserGen {
 	public String fullName(String forename, String middleName, String surName) {
+		
+		if (forename == null ) {
+			String name = "Name not valid";
+			return name;
+		}
+		if (middleName == null) {
+			middleName = " ";
+		}
+		if (surName == null) {
+			String name = "Name not valid";
+			return name;
+		}
 		
 		forename = forename.toUpperCase();
 		middleName = middleName.toUpperCase();
